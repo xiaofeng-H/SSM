@@ -1,0 +1,9 @@
+pers\xiaofeng\demo\UserDaoDemo.class
+pers\xiaofeng\factory\DynamicFactory.class
+pers\xiaofeng\dao\impl\UserDaoImpl.class
+pers\xiaofeng\dao\UserDao.class
+pers\xiaofeng\factory\StaticFactory.class
+pers\xiaofeng\service\impl\UserServiceImpl.class
+pers\xiaofeng\service\UserService.class
+pers\xiaofeng\demo\UserController.class
+pers\xiaofeng\domain\User.class
