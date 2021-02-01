@@ -16,6 +16,7 @@
 
     <!--加载外部的properties文件（property-placeholder：属性加载器）（location：指定文件路径（如果在resource下面，前面直接写classpath:））-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
+
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${jdbc.driver}"></property>
         <property name="jdbcUrl" value="${jdbc.url}"></property>
