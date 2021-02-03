@@ -1,11 +1,7 @@
 package pers.xiaofeng.service.impl;
 
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import pers.xiaofeng.dao.UserDao;
 import pers.xiaofeng.service.UserService;
@@ -53,12 +49,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @PostConstruct
-    public void init (){
+    public void init() {
         System.out.println("Service对象的初始化方法");
     }
 
     @PreDestroy
-    public void destroy (){
+    public void destroy() {
         System.out.println("Service对象的销毁方法");
     }
 }
