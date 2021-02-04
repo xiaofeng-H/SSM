@@ -17,6 +17,7 @@ public class ProxyTest {
 
         // 增强对象
         Advice advice = new Advice();
+
         // 返回值：就是动态生成的代理对象
         TargetInterface proxy = (TargetInterface) Proxy.newProxyInstance(
                 target.getClass().getClassLoader(), // 目标对象类加载器
