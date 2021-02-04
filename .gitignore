@@ -59,7 +59,7 @@
 target/
 .idea/
 .idea/compiler.xml
-player.iml
+*.iml
 
 #忽略.class文件
 *.class
