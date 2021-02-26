@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--映射文件DTD约束头（之后写代码时会给出标签属性等的提示）-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--主要描述SQL语句-->
+<!--根标签 命名空间：与下面语句的id一起组成查询的标识-->
+<mapper namespace="pers.xiaofeng.dao.UserMapper">
+    <!--查询操作-->
+    <select id="findAll" resultType="user">
+        select *
+        from user
+    </select>
+
+    <!--根据id进行查询-->
+    <select id="findById" parameterType="int" resultType="user">
+        select *
+        from user
+        where uid = #{uid}
+    </select>
+
+
+</mapper>

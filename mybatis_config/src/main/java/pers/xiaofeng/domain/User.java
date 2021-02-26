@@ -1,5 +1,7 @@
 package pers.xiaofeng.domain;
 
+import java.util.Date;
+
 /**
  * @className: pers.xiaofeng.domain.User
  * @description: mybatis练习实体类
@@ -11,6 +13,7 @@ public class User {
     private int uid;
     private String username;
     private String password;
+    private Date birthday;
 
     public int getUid() {
         return uid;
@@ -36,12 +39,21 @@ public class User {
         this.password = password;
     }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "uid=" + uid +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", birthday='" + birthday + '\'' +
                 '}';
     }
 }

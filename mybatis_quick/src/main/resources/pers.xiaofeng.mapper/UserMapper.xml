@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--映射文件DTD约束头（之后写代码时会给出标签属性等的提示）-->
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!--主要描述SQL语句-->
+<!--根标签 命名空间：与下面语句的id一起组成查询的标识-->
 <mapper namespace="userMapper">
-    <select id="findAll" resultType="pers.xiaofeng.domain.User">
-        select * from user
+    <!--select:查询操作，可选的还有insert,update,delete;
+        id:语句的id标识,与上面的命名空间一起组成查询的的标识-->
+    <!--resultType:查询结果对应的实体类型(全限定名)-->
+    <select id="findAll" resultType="user">
+        select *
+        from user
     </select>
+
+    <!--插入操作-->
+    <!--parameterType:参数类型,指定要插入的数据类型-->
+    <!--SQL语句中使用#{实体属性名}方式引用实体中属性值-->
+    <!--插入操作使用的API是sqlSession.insert("命名空间.id", 实体对象);-->
+    <!--插入操作设计数据库数据变化,所以要使用sqlSession对象的显示的提交事务-->
+    <insert id="save" parameterType="pers.xiaofeng.domain.User">
+        insert into user
+        values (#{uid}, #{username}, #{password})
+    </insert>
+
+    <!--修改操作-->
+    <update id="update" parameterType="pers.xiaofeng.domain.User">
+        update user
+        set username=#{username},
+            password=#{password}
+        where uid = ${uid}
+    </update>
+
+    <!--删除操作-->
+    <!--SQL语句中使用#{任意字符串}方式引用传递的单个参数-->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete
+        from user
+        where uid = #{uid}
+    </delete>
+
+
 </mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.xiaofeng.mapper.UserMapper">
+
+    <!--sql语句抽取-->
+    <sql id="selectUser">select *
+                         from user</sql>
+
+    <!--查询操作-->
+    <select id="findByCondition" parameterType="user" resultType="user">
+        <include refid="selectUser"></include>
+        <where>
+            <if test="uid!=0">
+                and uid = #{uid}
+            </if>
+            <if test="username!=null">
+                and username = #{username}
+            </if>
+            <if test="password!=null">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <select id="findByIds" parameterType="list" resultType="user">
+        <include refid="selectUser"></include>
+        <where>
+            <foreach collection="list" open="uid in (" close=")" item="uid" separator=",">
+                #{uid}
+            </foreach>
+        </where>
+    </select>
+
+</mapper>
