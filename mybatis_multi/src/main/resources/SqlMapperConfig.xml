@@ -10,22 +10,15 @@
 
     <!--定义别名(设置类型别名)-->
     <typeAliases>
-        <typeAlias type="pers.xiaofeng.domain.User" alias="user"></typeAlias>
+        <typeAlias type="pers.xiaofeng.domian.User" alias="user"></typeAlias>
+        <typeAlias type="pers.xiaofeng.domian.Order" alias="order"></typeAlias>
+        <typeAlias type="pers.xiaofeng.domian.Role" alias="role"></typeAlias>
     </typeAliases>
 
     <!--注册类型处理器-->
     <typeHandlers>
         <typeHandler handler="pers.xiaofeng.handler.DateTypeHandler"></typeHandler>
     </typeHandlers>
-
-    <!--配置分页助手插件-->
-    <!--注意：分页助手插件 配置在通用馆mapper之前-->
-    <plugins>
-        <plugin interceptor="com.github.pagehelper.PageHelper">
-            <!--指定方言-->
-            <property name="dialect" value="mysql"/>
-        </plugin>
-    </plugins>
 
     <!--数据源的环境:
         default:指定默认的环境名称
@@ -53,21 +46,13 @@
             </dataSource>
         </environment>
 
-        <environment id="developmentZX">
-            <transactionManager type="JDBC"></transactionManager>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://192.168.50.95:3306/lyx_db_1"/>
-                <property name="username" value="qp_2020_dev_user"/>
-                <property name="password" value="qp_2020_dev_user123"/>
-            </dataSource>
-        </environment>
     </environments>
 
     <!--加载映射文件(加载映射配置)-->
     <mappers>
         <mapper resource="pers.xiaofeng.mapper/UserMapper.xml"></mapper>
+        <mapper resource="pers.xiaofeng.mapper/OrderMapper.xml"></mapper>
     </mappers>
 
-    
+
 </configuration>

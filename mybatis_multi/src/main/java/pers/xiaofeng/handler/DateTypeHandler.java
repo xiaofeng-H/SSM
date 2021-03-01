@@ -13,21 +13,9 @@ import java.util.Date;
  * @className: pers.xiaofeng.handler.DateTypeHandler
  * @description:
  * @author: xiaofeng
- * @create: 2021-02-26 17:55
+ * @create: 2021-03-01 14:53
  */
 public class DateTypeHandler extends BaseTypeHandler<Date> {
-    /*
-    typeHandlers标签(类型转换器)
-    具体做法:实现org.apache.ibatis.type.TypeHandler接口,或继承一个很便利的类org.apache.ibatis.type.BaseTypeHandler,然后
-    可以选择性地将它映射到一个JDBC类型.
-
-    开发步骤:
-    1>定义转换类继承类BaseTypeHandler<T>
-    2>覆盖四个未实现的方法，其中setNonNullParameter为java程序设置数据到数据库的回调方法，getNullableResult为查询时
-    mysql的字符串类型转换成Java的Type类型的方法。
-    3>在mybatis核心配置文件中进行注册
-    4>测试转换是否正确
-    */
 
     @Override
     // 将Java类型转换成数据库需要的类型

@@ -16,15 +16,9 @@
         where uid = #{uid}
     </select>
 
-    <!--typeHandlers标签(类型转换器)
-        具体做法:实现org.apache.ibatis.type.TypeHandler接口,或继承一个很便利的类org.apache.ibatis.type.BaseTypeHandler,然后
-        可以选择性地将它映射到一个JDBC类型.
+    <select id="findAll" resultType="user">
+        select *
+        from user
+    </select>
 
-        开发步骤:
-        1>定义转换类继承类BaseTypeHandler<T>
-        2>覆盖四个未实现的方法，其中setNonNullParameter为java程序设置数据到数据库的回调方法，getNullableResult为查询时
-        mysql的字符串类型转换成Java的Type类型的方法。
-        3>在mybatis核心配置文件中进行注册
-        4>测试转换是否正确
-    -->
 </mapper>

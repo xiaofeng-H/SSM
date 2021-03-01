@@ -1,6 +1,6 @@
 package pers.xiaofeng.mapper;
 
-import pers.xiaofeng.domain.User;
+import pers.xiaofeng.domian.User;
 
 import java.util.List;
 
@@ -8,12 +8,10 @@ import java.util.List;
  * @className: pers.xiaofeng.mapper.UserMapper
  * @description:
  * @author: xiaofeng
- * @create: 2021-02-26 17:41
+ * @create: 2021-03-01 13:57
  */
 public interface UserMapper {
-    public void save(User user) throws Exception;
-
-    public User findById(int uid) throws Exception;
-
     public List<User> findAll() throws Exception;
+
+    public List<User> findUserAndRoleAll() throws Exception;
 }
