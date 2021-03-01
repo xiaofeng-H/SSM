@@ -33,7 +33,7 @@ public class MybatisTest {
     @Test
     public void testSave() {
         User user = new User();
-        user.setUsername("马超");
+        user.setUsername("猪二哥");
         user.setPassword("123");
         mapper.save(user);
     }
