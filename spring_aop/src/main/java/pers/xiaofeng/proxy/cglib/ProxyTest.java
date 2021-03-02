@@ -32,11 +32,11 @@ public class ProxyTest {
         enhancer.setCallback(new MethodInterceptor() {
             @Override
             public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
-                // 执行前置
+                // 执行前置增强
                 advice.before();
-                // 执行目标
+                // 执行目标方法
                 Object invoke = method.invoke(target, args);
-                // 执行后置
+                // 执行后置增强
                 advice.afterReturning();
 
                 return null;

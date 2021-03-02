@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--目标对象-->
+    <bean id="target" class="pers.xiaofeng.aop.Target"/>
+
+    <!--切面对象-->
+    <bean id="myAspect" class="pers.xiaofeng.aop.MyAspect"/>
+
+    <!--配置织入：告诉spring框架，哪些方法（切点）需要进行哪些增强（前置、后置）-->
+    <aop:config>
+        <!--声明切面-->
+        <aop:aspect ref="myAspect">
+
+            <!--通知的配置语法：<aop:通知类型 method="切面类中方法名" pointcut="切点表达式"/>
+                后置通知：<aop:after-returning>，用于配置后置通知；
+                环绕通知：<aop:around>，用于配置环绕通知。指定增强的方法在切入点方法之前和之后都执行；
+                异常抛出通知：<aop:throwing>，用于配置异常抛出通知。指定增强的方法在出现异常时执行；
+                最终通知：<aop:after>，用于配置最终通知。无论增强方法执行是否有异常都会执行。
+            -->
+
+            <!--切点表达式：execution([修饰符] 返回值类型 包名.类名.方法名(参数))
+            注意：
+                >访问修饰符可以省略
+                >返回值类型、包名、类名、方法名可以使用*代表任意
+                >包名与类名之间一个点.代表当前包下的类，两个点..表示当前包及其子包下的类
+                >参数列表可以使用两个点..表示任意个数，任意类型的参数列表
+            eg:
+                execution(void pers.xiaofeng.aop.Target.*(..))：Target类下的任意无返回值方法任意参数
+                execution(* pers.xiaofeng.aop.*.*(..))：aop包下的任意方法任意参数（常用）
+                execution(* pers.xiaofeng.aop..*.*(..))：aop包及其子包下的任意方法任意参数
+                execution(* *..*.*(..))
+            -->
+
+            <!--抽取切点表达式-->
+            <aop:pointcut id="myPointcut" expression="execution(* pers.xiaofeng.aop.*.*(..))"/>
+
+            <!--切面：切点+通知-->
+            <!--<aop:before method="before" pointcut="execution(public void pers.xiaofeng.aop.Target.save())"/>-->
+            <!--<aop:before method="before" pointcut="execution(* pers.xiaofeng.aop.*.*(..))"/>
+            <aop:after-returning method="afterReturning" pointcut="execution(* pers.xiaofeng.aop.*.*(..))"/>-->
+            <aop:around method="around" pointcut-ref="myPointcut"/>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="myPointcut"/>
+            <aop:after method="after" pointcut-ref="myPointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

@@ -10,7 +10,7 @@ import java.lang.reflect.Proxy;
  * @author: xiaofeng
  * @create: 2021-02-03 23:42
  */
-public class ProxyTest {
+public class    ProxyTest {
     public static void main(String[] args) {
         // 目标对象
         Target target = new Target();
