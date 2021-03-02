@@ -14,12 +14,13 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * @className: pers.xiaofeng.MybatisTest
+ * @className: pers.xiaofeng.MybatisTest2
  * @description:
  * @author: xiaofeng
- * @create: 2021-03-01 16:59
+ * @create: 2021-03-01 18:11
  */
-public class MybatisTest {
+public class MybatisTest4 {
+
     private UserMapper mapper;
 
     @Before
@@ -31,37 +32,10 @@ public class MybatisTest {
     }
 
     @Test
-    public void testSave() {
-        User user = new User();
-        user.setUsername("猪二哥");
-        user.setPassword("123");
-        mapper.save(user);
-    }
-
-    @Test
-    public void testUpdate() {
-        User user = new User();
-        user.setUid(5);
-        user.setUsername("Lucy");
-        user.setPassword("123");
-
-        mapper.update(user);
-    }
-
-    @Test
-    public void testDelete() {
-        mapper.delete(10);
-    }
-
-    @Test
-    public void testFindById() {
-        User user = mapper.findById(1);
-        System.out.println(user);
-    }
-
-    @Test
-    public void testFindAll() {
-        List<User> userList = mapper.findAll();
-        System.out.println(userList);
+    public void findUsersAndRoles() {
+        List<User> all = mapper.findUserAndRoleALl();
+        for (User user : all) {
+            System.out.println(user);
+        }
     }
 }

@@ -32,7 +32,7 @@ public class MybatisTest2 {
     }
 
     @Test
-    public void findUserAndOrder() {
+    public void findOrder2User() {
         List<Order> all = orderMapper.findAll();
         for (Order order : all) {
             System.out.println(order);

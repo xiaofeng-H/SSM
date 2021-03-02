@@ -1,9 +1,6 @@
 package pers.xiaofeng.mapper;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import pers.xiaofeng.dao.User;
 
 import java.util.List;
@@ -30,4 +27,42 @@ public interface UserMapper {
 
     @Select("select * from user")
     public List<User> findAll();
+
+    /**
+     * 一对多查询演示
+     *
+     * @return
+     */
+    @Select("select * from user")
+    @Results({
+            @Result(id = true, column = "uid", property = "uid"),
+            @Result(column = "username", property = "username"),
+            @Result(column = "password", property = "password"),
+            @Result(
+                    property = "orderList",
+                    column = "uid",
+                    javaType = List.class,
+                    many = @Many(select = "pers.xiaofeng.mapper.OrderMapper.findByUid")
+            )
+    })
+    public List<User> findUserAndOrderAll();
+
+    /**
+     * 多对多查询演示
+     *
+     * @return
+     */
+    @Select("select * from user")
+    @Results({
+            @Result(id = true, column = "uid", property = "uid"),
+            @Result(column = "username", property = "username"),
+            @Result(column = "password", property = "password"),
+            @Result(
+                    property = "roleList",
+                    column = "uid",
+                    javaType = List.class,
+                    many = @Many(select = "pers.xiaofeng.mapper.RoleMapper.findRoleByUid")
+            )
+    })
+    public List<User> findUserAndRoleALl();
 }
