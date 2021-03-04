@@ -8,15 +8,6 @@ package pers.xiaofeng.domain;
  */
 public class Account {
 
-    /*
-    * 数据库建表语句：
-    CREATE TABLE `account` (
-        `name` varchar(32) NOT NULL DEFAULT '',
-        `money` BIGINT NOT NULL DEFAULT '0',
-        PRIMARY KEY (`name`)
-    )
-    * */
-
     private String name;
     private double money;
 
