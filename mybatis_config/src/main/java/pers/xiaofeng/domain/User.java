@@ -4,11 +4,22 @@ import java.util.Date;
 
 /**
  * @className: pers.xiaofeng.domain.User
- * @description: mybatis练习实体类
+ * @description: mybatis练习实体类，对应数据库user表
  * @author: xiaofeng
  * @create: 2021-02-25 17:50
  */
 public class User {
+
+    /*
+    * 数据库建表语句：
+    CREATE TABLE `user` (
+        `uid` int(11) NOT NULL AUTO_INCREMENT,
+        `username` varchar(32) NOT NULL DEFAULT '',
+        `password` char(12) NOT NULL DEFAULT '',
+        `birthday` bigint(20) DEFAULT NULL,
+        PRIMARY KEY (`uid`)
+    )
+    * */
 
     private int uid;
     private String username;
