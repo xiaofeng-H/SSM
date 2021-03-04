@@ -13,7 +13,7 @@ public class Account {
     CREATE TABLE `account` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `name` varchar(32) NOT NULL DEFAULT '',
-        `money` BIGINT NOT NULL DEFAULT '0',
+        `money` double NOT NULL DEFAULT '0.0',
         PRIMARY KEY (`id`)
     )
     * */
