@@ -1,2 +1,2 @@
 # ssm
-Spring&SpringMVC&myBatis入门练习
+Spring、SpringMVC、MyBatis入门练习
