@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--核心配置文件-->
+
+<configuration>
+
+    <!--定义别名-->
+    <typeAliases>
+        <!--<typeAlias type="pers.xiaofeng.domain.Account" alias="account"/>-->
+        <!--扫描包下的所有实体类，定义一个别名（实体类名首字母小写）-->
+        <package name="pers.xiaofeng.domain"/>
+    </typeAliases>
+
+</configuration>
